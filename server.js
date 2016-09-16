@@ -13,9 +13,15 @@ var api = require('./routes/api');
 var app = express();
 //var router = express.Router();   
 
+
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+
+
 
 //db connections
 // MongoDB via Mongoose
@@ -42,17 +48,38 @@ db.on('disconnected', function() {
 });
 //mongoose.connect(models.MONGODB_SERVER, models.MONGODB_SERVER_OPTIONS);
 
+//load models
+var Marina = require('./backend/models/marina');
+
+
+
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
+
+
+
+// Routes
+app.use('/assets', express.static(__dirname + '/assets'));
+app.use('/css', express.static(__dirname + '/css'));
+app.use('/build', express.static(__dirname + '/build'));
+app.use('/vendor', express.static(__dirname + '/vendor'));
+app.use('/js', express.static(__dirname + '/js'));
+app.use('/bower', express.static(__dirname + '/bower_components'));
+app.use('/src', express.static(__dirname + '/src'));
+app.use(express.static(path.join(__dirname, 'client')));
 
 //app.use('/api', router);
 app.use('/', routes);
 app.use('/api', api);
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

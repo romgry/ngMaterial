@@ -7,4 +7,4 @@ var MarinaSchema   = new Schema({
     name: String
 });
 
-module.exports = mongoose.model('Marina', BearSchema);
+module.exports = mongoose.model('Marina', MarinaSchema);
