@@ -38,9 +38,9 @@ db.on('reconnected', function () {
 });
 db.on('disconnected', function() {
     log.error('MongoDB disconnected !');
-    mongoose.connect(models.MONGODB_SERVER, models.MONGODB_SERVER_OPTIONS);
+    //mongoose.connect(models.MONGODB_SERVER, models.MONGODB_SERVER_OPTIONS);
 });
-mongoose.connect(models.MONGODB_SERVER, models.MONGODB_SERVER_OPTIONS);
+//mongoose.connect(models.MONGODB_SERVER, models.MONGODB_SERVER_OPTIONS);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
