@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://heroku_qcn57j1p:ppu6jlegk81midn7fev9mjbj0g@ds033036.mlab.com:33036/heroku_qcn57j1p')
+mongoose.connect('mongodb://');
 
 var routes = require('./routes/index');
 var api = require('./routes/api');
