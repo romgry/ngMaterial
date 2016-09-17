@@ -65,6 +65,7 @@ app.use(cookieParser());
 
 
 // Routes
+app.use(express.static(path.join(__dirname, 'client')));
 app.use('/assets', express.static(__dirname + '/assets'));
 app.use('/css', express.static(__dirname + '/css'));
 app.use('/build', express.static(__dirname + '/build'));
@@ -72,7 +73,9 @@ app.use('/vendor', express.static(__dirname + '/vendor'));
 app.use('/js', express.static(__dirname + '/js'));
 app.use('/bower', express.static(__dirname + '/bower_components'));
 app.use('/src', express.static(__dirname + '/src'));
-app.use(express.static(path.join(__dirname, 'client')));
+app.use('/html', express.static(__dirname + '/html'));
+app.use('/components', express.static(__dirname + '/components'));
+
 
 //app.use('/api', router);
 app.use('/', routes);

@@ -1,6 +1,6 @@
 0 info it worked if it ends with ok
 1 verbose cli [ '/usr/local/Cellar/node/6.2.2/bin/node',
-1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   '/usr/local/lib/node_modules/npm/bin/npm-cli.js',
 1 verbose cli   'start' ]
 2 info using npm@3.10.8
 3 info using node@v6.2.2
@@ -27,7 +27,7 @@
 15 verbose pkgid channel16@0.0.1
 16 verbose cwd /Users/gary/Playground/channel16
 17 error Darwin 15.6.0
-18 error argv "/usr/local/Cellar/node/6.2.2/bin/node" "/usr/local/bin/npm" "start"
+18 error argv "/usr/local/Cellar/node/6.2.2/bin/node" "/usr/local/lib/node_modules/npm/bin/npm-cli.js" "start"
 19 error node v6.2.2
 20 error npm  v3.10.8
 21 error code ELIFECYCLE
