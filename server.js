@@ -5,16 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://heroku_qcn57j1p:ppu6jlegk81midn7fev9mjbj0g@ds033036.mlab.com:33036/heroku_qcn57j1p')
+mongoose.connect('mongodb://heroku_qcn57j1p:ppu6jlegk81midn7fev9mjbj0g@ds033036.mlab.com:33036/heroku_qcn57j1p');
 
 var routes = require('./routes/index');
 var api = require('./routes/api');
 
 var app = express();
-//var router = express.Router();   
-
-
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -49,7 +45,6 @@ db.on('disconnected', function() {
 //mongoose.connect(models.MONGODB_SERVER, models.MONGODB_SERVER_OPTIONS);
 
 //load models
-var Marina = require('./backend/models/marina');
 
 
 
@@ -85,7 +80,6 @@ app.get('/partials/:name', routes.partials);
 // JSON API
 
 app.get('/api/posts', api.posts);
-
 app.get('/api/post/:id', api.post);
 app.post('/api/post', api.addPost);
 app.put('/api/post/:id', api.editPost);
