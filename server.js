@@ -65,7 +65,7 @@ app.use(cookieParser());
 
 
 // Routes
-app.use(express.static(path.join(__dirname, 'client')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use('/assets', express.static(__dirname + '/assets'));
 app.use('/css', express.static(__dirname + '/css'));
 app.use('/build', express.static(__dirname + '/build'));
@@ -77,9 +77,22 @@ app.use('/html', express.static(__dirname + '/html'));
 app.use('/components', express.static(__dirname + '/components'));
 
 
-//app.use('/api', router);
-app.use('/', routes);
-app.use('/api', api);
+// Routes
+
+app.get('/', routes.index);
+app.get('/partials/:name', routes.partials);
+
+// JSON API
+
+app.get('/api/posts', api.posts);
+
+app.get('/api/post/:id', api.post);
+app.post('/api/post', api.addPost);
+app.put('/api/post/:id', api.editPost);
+app.delete('/api/post/:id', api.deletePost);
+
+// redirect all others to the index (HTML5 history)
+app.get('*', routes.index);
 
 
 
